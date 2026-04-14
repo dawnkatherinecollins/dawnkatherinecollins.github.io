@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dawn Collins — Revenue Enablement & Partnerships</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --bg-secondary: #f7f7f5;
+      --text-primary: #1a1a1a;
+      --text-secondary: #555555;
+      --text-tertiary: #999999;
+      --border: rgba(0,0,0,0.12);
+      --border-hover: rgba(0,0,0,0.25);
+      --accent: #1a56db;
+      --accent-bg: #eff6ff;
+      --success-bg: #f0fdf4;
+      --success-text: #166534;
+      --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111111;
+        --bg-secondary: #1c1c1c;
+        --text-primary: #f0f0f0;
+        --text-secondary: #aaaaaa;
+        --text-tertiary: #666666;
+        --border: rgba(255,255,255,0.12);
+        --border-hover: rgba(255,255,255,0.25);
+        --accent: #60a5fa;
+        --accent-bg: #1e3a5f;
+        --success-bg: #14532d;
+        --success-text: #86efac;
+      }
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    .site {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 2rem;
+      border-bottom: 0.5px solid var(--border);
+      margin-bottom: 3rem;
+    }
+
+    .nav-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+
+    .nav-links a:hover { color: var(--text-primary); }
+
+    /* HERO */
+    .hero { margin-bottom: 4rem; }
+
+    .hero-tag {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 38px;
+      font-weight: 500;
+      color: var(--text-primary);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 span { color: var(--text-secondary); }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      max-width: 620px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--text-primary);
+      color: var(--bg);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      font-family: var(--font);
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-primary);
+      border: 0.5px solid var(--border-hover);
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      font-family: var(--font);
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-secondary:hover { background: var(--bg-secondary); }
+
+    /* METRICS */
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 4rem;
+    }
+
+    .metric {
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+
+    .metric-num {
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .metric-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+
+    /* SECTIONS */
+    .section { margin-bottom: 4rem; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-tertiary);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .about-text {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    .about-text p { margin-bottom: 1rem; }
+
+    .skills {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .skill-tag {
+      background: var(--bg-secondary);
+      border: 0.5px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    /* EXPERIENCE */
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .exp-card {
+      background: var(--bg);
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 4px;
+    }
+
+    .exp-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .exp-date {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      white-space: nowrap;
+      margin-left: 1rem;
+    }
+
+    .exp-company {
+      font-size: 13px;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .exp-bullets li {
+      font-size: 13px;
+      color: var(--text-secondary);
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .exp-bullets li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--text-tertiary);
+    }
+
+    /* PORTFOLIO */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .portfolio-card {
+      background: var(--bg-secondary);
+      border-radius: 12px;
+      padding: 1.25rem;
+      border: 0.5px solid var(--border);
+      transition: border-color 0.15s;
+    }
+
+    .portfolio-card:hover { border-color: var(--border-hover); }
+
+    .portfolio-type {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .portfolio-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+
+    .portfolio-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* TESTIMONIAL */
+    .testimonial {
+      background: var(--bg-secondary);
+      border-radius: 12px;
+      padding: 1.5rem;
+      border-left: 2px solid var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .testimonial-text {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-author {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .testimonial-role {
+      font-size: 12px;
+      color: var(--text-tertiary);
+    }
+
+    /* CONTACT */
+    .contact-card {
+      background: var(--bg);
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      text-align: center;
+    }
+
+    .contact-card h3 {
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .contact-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      font-size: 13px;
+      color: var(--accent);
+      text-decoration: none;
+      border: 0.5px solid var(--accent);
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: background 0.15s;
+    }
+
+    .contact-link:hover { background: var(--accent-bg); }
+
+    /* FOOTER */
+    footer {
+      border-top: 0.5px solid var(--border);
+      padding-top: 2rem;
+      margin-top: 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-text {
+      font-size: 12px;
+      color: var(--text-tertiary);
+    }
+
+    .open-badge {
+      background: var(--success-bg);
+      color: var(--success-text);
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 8px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 28px; }
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { grid-template-columns: 1fr; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .nav-links { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site">
+
+    <nav>
+      <span class="nav-name">Dawn Collins</span>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-tag">Revenue Enablement · Partnerships · Customer Success</div>
+      <h1>I help sales teams<br><span>sell with confidence.</span></h1>
+      <p class="hero-sub">Senior enterprise AE turned de facto enablement leader. I build the playbooks, programs, and coaching frameworks that make revenue teams better — with the credibility of someone who has carried quota, closed deals, and managed a $2M+ book of business.</p>
+      <div class="hero-cta">
+        <a href="#portfolio" class="btn-primary">View my work</a>
+        <a href="#contact" class="btn-secondary">Get in touch</a>
+      </div>
+    </section>
+
+    <div class="metrics">
+      <div class="metric">
+        <div class="metric-num">$2M+</div>
+        <div class="metric-label">ARR managed</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">109%</div>
+        <div class="metric-label">Quota attainment</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">100%</div>
+        <div class="metric-label">Logo retention</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">2</div>
+        <div class="metric-label">Colleagues promoted under my coaching</div>
+      </div>
+    </div>
+
+    <section class="section" id="about">
+      <div class="section-label">About</div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>I'm a Brooklyn-based enterprise sales and enablement professional with a track record of building things that don't exist yet — playbooks, training programs, partner frameworks, and onboarding systems — alongside a full quota-carrying role.</p>
+          <p>I graduated cum laude from Pace University after putting myself through school working in NYC nightlife and hospitality. That chapter taught me more about reading people, building relationships, and performing under pressure than any training program ever could.</p>
+          <p>I use AI as a core part of how I work — not as a novelty, but as genuine workflow infrastructure. I'm a daily Claude user who has restructured how I operate around it.</p>
+        </div>
+        <div class="skills">
+          <div class="skill-tag">Sales enablement & program development</div>
+          <div class="skill-tag">Partner ecosystem management</div>
+          <div class="skill-tag">Customer success & retention</div>
+          <div class="skill-tag">Battle cards, playbooks & talk tracks</div>
+          <div class="skill-tag">1:1 coaching & rep development</div>
+          <div class="skill-tag">Technical concept translation</div>
+          <div class="skill-tag">AI-augmented content creation</div>
+          <div class="skill-tag">MEDDICC · Sandler · CPM certified</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="section-label">Experience</div>
+      <div class="exp-list">
+
+        <div class="exp-card">
+          <div class="exp-header">
+            <div class="exp-title">Strategic Account Executive · Informal Enablement Lead</div>
+            <div class="exp-date">2023 – Present</div>
+          </div>
+          <div class="exp-company">AtData, an Experian Company</div>
+          <ul class="exp-bullets">
+            <li>Own $2M+ ARR portfolio across ~25 enterprise accounts with 100% logo retention</li>
+            <li>Built org-wide enablement library — battle cards, playbooks, integration guides, onboarding docs — all peer-adopted over formal training materials</li>
+            <li>Named partner portfolio: Listrak, ActiveCampaign, Active Prospect, Persona</li>
+            <li>Coached colleagues to promotions; ran org-wide LinkedIn training adopted company-wide</li>
+            <li>109% quota attainment; quota grown $300K → $500K over 3 years</li>
+          </ul>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-header">
+            <div class="exp-title">Senior AE · Account Manager · Enablement Lead</div>
+            <div class="exp-date">2021 – 2023</div>
+          </div>
+          <div class="exp-company">NoFraud — Fraud Prevention & Ecommerce Risk</div>
+          <ul class="exp-bullets">
+            <li>4 promotions in 2 years: SDR → SMB AE → AM → Mid-Market Senior AE</li>
+            <li>$1.8M personally closed across 180+ accounts at 125% quota attainment</li>
+            <li>Founded Sales Growth division; built Quizlet training, onboarding programs, and Value Reporting framework in Metabase</li>
+            <li>Coached two colleagues who both earned promotions under direct mentorship</li>
+            <li>Integration partnerships: Shopify, BigCommerce, Coreware</li>
+          </ul>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-header">
+            <div class="exp-title">Sales Trainer & Brand Education Specialist</div>
+            <div class="exp-date">Nov 2020 – Mar 2021</div>
+          </div>
+          <div class="exp-company">Anheuser-Busch InBev · New York, NY</div>
+          <ul class="exp-bullets">
+            <li>Designed and delivered in-person training for ~15 field reps across NYC boroughs</li>
+            <li>Built product knowledge assessments in the InBev platform to validate rep readiness</li>
+          </ul>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-header">
+            <div class="exp-title">Account Executive</div>
+            <div class="exp-date">Nov 2019 – Nov 2020</div>
+          </div>
+          <div class="exp-company">Union Beer Distributors · New York, NY</div>
+          <ul class="exp-bullets">
+            <li>Managed Manhattan territory across hospitality, retail, and distribution accounts</li>
+            <li>Achieved consistent 10%+ quarterly revenue growth through strategic account management</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section" id="portfolio">
+      <div class="section-label">Enablement portfolio</div>
+      <div class="portfolio-grid">
+        <div class="portfolio-card">
+          <div class="portfolio-type">Technical translation</div>
+          <div class="portfolio-title">Integration Guide for Dummies</div>
+          <div class="portfolio-desc">Plain-language guide covering Direct API, ActiveMQ, pixel/JS tag, webhooks, SFTP, boolean logic, wildcards, and file types. Used by both sellers and technical colleagues org-wide.</div>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-type">Battle card</div>
+          <div class="portfolio-title">Product positioning playbook</div>
+          <div class="portfolio-desc">Full differentiation framework with discovery questions, role-play scenarios, elevator pitches, objection handling, and closing guidance for two closely related products.</div>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-type">Vertical playbook</div>
+          <div class="portfolio-title">Ecommerce fraud prevention starter playbook</div>
+          <div class="portfolio-desc">Vertical-specific guide covering buyer pain points, discovery questions, talk track angles, and key takeaways for new reps entering the ecommerce fraud space.</div>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-type">Process documentation</div>
+          <div class="portfolio-title">Product testing guides by service</div>
+          <div class="portfolio-desc">End-to-end testing process documentation covering workflow steps, internal alignment requirements, escalation paths, and conversion strategy across multiple product lines.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">What people say</div>
+      <div class="testimonial">
+        <div class="testimonial-text">"Universally recognized across the team as more impactful than our dedicated enablement hire. Dawn built content people actually used — not content that sat in a folder."</div>
+        <div class="testimonial-author">Peer recognition, AtData</div>
+        <div class="testimonial-role">Reflected independently across multiple colleagues</div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="section-label">Contact</div>
+      <div class="contact-card">
+        <h3>Let's connect</h3>
+        <p>Open to enablement, partnerships, and customer success opportunities across data, AI, and SaaS.</p>
+        <div class="contact-links">
+          <a href="mailto:dawnkatherinecollins@gmail.com" class="contact-link">dawnkatherinecollins@gmail.com</a>
+          <a href="https://linkedin.com/in/dawnkatherinecollins" class="contact-link" target="_blank">LinkedIn</a>
+          <a href="tel:7186967719" class="contact-link">718-696-7719</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span class="footer-text">Dawn Collins · Brooklyn, NY · dawnkatherinecollins.com</span>
+      <span class="open-badge">Open to opportunities</span>
+    </footer>
+
+  </div>
+</body>
+</html>
